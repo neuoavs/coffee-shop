@@ -21,17 +21,15 @@ session_start();
 
     <link rel="stylesheet" href="{{asset('resources/assets/system/css/animate.css')}}">
     
-    <link rel="stylesheet" href="{{asset('resources/assets/system/plugins/select2/css/select2.min.css')}}"/>
-    
     <link rel="stylesheet" href="{{asset('resources/assets/system/css/dataTables.bootstrap4.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('resources/assets/system/plugins/fontawesome/css/fontawesome.min.css')}}">
     
     <link rel="stylesheet" href="{{asset('resources/assets/system/plugins/fontawesome/css/all.min.css')}}">
 
-    <link rel="stylesheet" href="{{asset('resources/assets/system/css/style.css')}}">
-    
+    @yield('style')
 
+    <link rel="stylesheet" href="{{asset('resources/assets/system/css/style.css')}}">
 </head>
 
 <body>
@@ -58,9 +56,13 @@ session_start();
     
     <script src="{{asset('resources/assets/system/js/bootstrap.bundle.min.js')}}"></script>
 
+    @yield('script')
+
     <script src="{{asset('resources/assets/system/js/script.js')}}"></script>
 
-    <script src="{{asset('resources/assets/system/js/jquery.dataTables.min.js')}}"></script>
+
+
+    {{-- <script src="{{asset('resources/assets/system/js/jquery.dataTables.min.js')}}"></script>
     
     <script src="{{asset('resources/assets/system/js/dataTables.bootstrap4.min.js')}}"></script>
 
@@ -78,7 +80,7 @@ session_start();
     
     <script src="{{asset('resources/assets/system/js/product-filter.js')}}"></script>
     
-    <script src="{{asset('resources/assets/system/js/image.js')}}"></script>
+    <script src="{{asset('resources/assets/system/js/image.js')}}"></script> --}}
 </body>
 
 </html>

@@ -4,6 +4,10 @@
   sessionStorage.setItem("ward", "{{ Session::get('ward') }}");
 </script>
 
+@section('style')
+<link rel="stylesheet" href="{{asset('resources/assets/system/plugins/select2/css/select2.min.css')}}"/>
+@endsection
+
 @extends('system.main.system_page.system_layout');
 @section('content')
 <div class="page-wrapper">
@@ -70,3 +74,18 @@
   {{Session::put('ward', null)}}
 @endsection
 
+@section('script')
+<script src="{{asset('resources/assets/system/js/jquery.dataTables.min.js')}}"></script>
+    
+<script src="{{asset('resources/assets/system/js/dataTables.bootstrap4.min.js')}}"></script>
+
+<script src="{{asset('resources/assets/system/plugins/select2/js/select2.min.js')}}"></script>
+
+<script src="{{asset('resources/assets/system/plugins/sweetalert/sweetalert2.all.min.js')}}"></script>
+
+<script src="{{asset('resources/assets/system/js/sweetalert.js')}}"></script>
+
+<script src="{{asset('resources/assets/system/js/axios.min.js')}}"></script>
+
+<script src="{{asset('resources/assets/system/plugins/vietnam_select/vietnam_select.js')}}"></script>
+@endsection
