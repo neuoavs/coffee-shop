@@ -3251,6 +3251,7 @@ div.dataTables_wrapper div.dataTables_info {
 .header .user-img {
     display: inline-block;
     position: relative;
+
 }
 .header .user-img img {
     width: 38px;
@@ -7356,4 +7357,3 @@ span.select2-container.select2-container--default.select2-container--open {
     top: 50%;
     right: 10px;
 }
-

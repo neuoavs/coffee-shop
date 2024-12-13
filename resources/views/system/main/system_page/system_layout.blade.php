@@ -26,6 +26,7 @@ session_start();
     <link rel="stylesheet" href="{{asset('resources/assets/system/css/dataTables.bootstrap4.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('resources/assets/system/plugins/fontawesome/css/fontawesome.min.css')}}">
+    
     <link rel="stylesheet" href="{{asset('resources/assets/system/plugins/fontawesome/css/all.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('resources/assets/system/css/style.css')}}">
@@ -74,6 +75,7 @@ session_start();
     <script src="{{asset('resources/assets/system/plugins/vietnam_select/vietnam_select.js')}}"></script>
 
     <script src="{{asset('resources/assets/system/js/branch-filter.js')}}"></script>
+    
     <script src="{{asset('resources/assets/system/js/product-filter.js')}}"></script>
     
     <script src="{{asset('resources/assets/system/js/image.js')}}"></script>
