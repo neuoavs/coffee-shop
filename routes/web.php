@@ -12,7 +12,7 @@ Route::get('/system', [SystemController::class, 'index']);
 //System Access
 Route::get('/system-access', [AccessController::class, 'index']);
 Route::get('/logout', [AccessController::class, 'systemLogout']);
-Route::post('/access', [AccessController::class, 'systemAccess']);
+Route::post('/access', [AccessController::class, 'accessSystem']);
 
 //Branch
 Route::get('/branch-list', [BranchController::class,'branchList']);

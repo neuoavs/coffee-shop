@@ -61,7 +61,6 @@ session_start();
     <script src="{{asset('resources/assets/system/js/script.js')}}"></script>
 
 
-
     {{-- <script src="{{asset('resources/assets/system/js/jquery.dataTables.min.js')}}"></script>
     
     <script src="{{asset('resources/assets/system/js/dataTables.bootstrap4.min.js')}}"></script>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 use App\Models\Branch;
 use Illuminate\Support\Facades\Session;
 session_start();
@@ -10,14 +11,18 @@ session_start();
 class BranchController extends Controller
 {
     public function branchList() {
+        $this->authAccess();
         return view("system.main.system_page.branch.main.branch_list", ["branches"=> Branch::all()]);
     }
 
     public function branchAdd() {
+        $this->authAccess();
         return view("system.main.system_page.branch.main.branch_add");
     }
-
+    
     public function branchEdit(Request $request) {
+        $this->authAccess();
+
         $branch = Branch::find($request->id);
         
         Session::put('province', $branch->province);
@@ -106,5 +111,10 @@ class BranchController extends Controller
     }
 
 
-
+    private function authAccess()
+    {
+        if (!Session::get('id')) {
+            return Redirect::to('/system-access')->send();
+        }
+    }
 }

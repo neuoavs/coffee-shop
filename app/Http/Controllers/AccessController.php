@@ -17,7 +17,7 @@ class AccessController extends Controller
         return view('system.main.access_page.access_layout');
     }
 
-    public function systemAccess(Request $request)
+    public function accessSystem(Request $request)
     {
         $id = $request->id;
         $password = $request->password; 

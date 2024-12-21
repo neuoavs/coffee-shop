@@ -12,15 +12,14 @@ class SystemController extends Controller
 {
     public function index()
     {
-        return $this->authAccess();
+        $this->authAccess();
+        return view('system.main.system_page.system_layout');
     }
 
     private function authAccess()
     {
-        if (Session::get('id')) {
-            return view('system.main.system_page.system_layout');
-        } else {
-            return Redirect::to('system-access');
+        if (!Session::get('id')) {
+            return Redirect::to('/system-access')->send();
         }
     }
 }
