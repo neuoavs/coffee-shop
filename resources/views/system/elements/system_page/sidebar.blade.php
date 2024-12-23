@@ -6,6 +6,7 @@
                     <a href="index.html"><img src="{{asset('resources/assets/system/img/icons/dashboard.svg')}}" alt="img"><span> Dashboard</span> </a>
                 </li>
                 @include('system.elements.system_page.branch')
+                @include('system.elements.system_page.position')
                 @include('system.elements.system_page.product')
                 @include('system.elements.system_page.profile')
             </ul>

@@ -29,7 +29,7 @@ session_start();
 
     @yield('style')
 
-    <link rel="stylesheet" href="{{asset('resources/assets/system/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('resources/assets/system/css/neuorol-style.css')}}">
 </head>
 
 <body>
