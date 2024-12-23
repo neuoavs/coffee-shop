@@ -9,19 +9,19 @@
     <div class="content">
       <div class="page-header">
         <div class="page-title">
-          <h4>Add Unit</h4>
-          <h6><strong>Unit</strong>/Add Unit</h6>
+          <h4>Add Menu</h4>
+          <h6><strong>Menu</strong>/Add Menu</h6>
         </div>
       </div>
       <div class="card">
         <div class="card-body">
-          <form class="row" id="add-confirm"  method="POST" data-model="unit">
+          <form class="row" id="add-confirm"  method="POST" data-model="menu">
             @csrf
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <div class="col-lg-6 col-sm-6 col-12">
               <div class="form-group">
-                <label>Unit Name</label>
-                <input type="text" name="name" placeholder="kg">
+                <label>Menu Name</label>
+                <input type="text" name="name" placeholder="Coffee">
               </div>
             </div>
             <div class="col-lg-6 col-sm-6 col-12">
@@ -36,7 +36,7 @@
             </div>
             <div class="col-lg-12">
               <button type="submit" class="btn btn-submit me-2">Submit</button>
-              <a href="{{URL::to('/unit-list')}}" class="btn btn-cancel">Back</a>
+              <a href="{{URL::to('/menu-list')}}" class="btn btn-cancel">Back</a>
             </div>
           </form>
         </div>

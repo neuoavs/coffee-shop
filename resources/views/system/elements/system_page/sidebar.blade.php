@@ -8,6 +8,7 @@
                 @include('system.elements.system_page.branch')
                 @include('system.elements.system_page.position')
                 @include('system.elements.system_page.unit')
+                @include('system.elements.system_page.menu')
                 @include('system.elements.system_page.product')
                 @include('system.elements.system_page.profile')
             </ul>

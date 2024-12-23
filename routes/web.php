@@ -6,6 +6,7 @@ use App\Http\Controllers\BranchController;
 use App\Http\Controllers\PositionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UnitController;
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 
 //System
@@ -42,6 +43,15 @@ Route::get('/delete-unit/{id}', [UnitController::class,'deleteUnit']);
 Route::post('/add-unit', [UnitController::class,'addUnit']);
 Route::post('/edit-unit/{id}', [UnitController::class, 'editUnit']);
 Route::get('/filter-unit', [UnitController::class, 'filterUnit']);
+
+//Menu
+Route::get('/menu-list', [MenuController::class,'menuList']);
+Route::get('/menu-add', [MenuController::class,'menuAdd']);
+Route::get('/menu-edit/{id}', [MenuController::class,'menuEdit']);
+Route::get('/delete-menu/{id}', [MenuController::class,'deleteMenu']);
+Route::post('/add-menu', [MenuController::class,'addMenu']);
+Route::post('/edit-menu/{id}', [MenuController::class, 'editMenu']);
+Route::get('/filter-menu', [MenuController::class, 'filterMenu']);
 
 //Product
 // Route::get('/product-list', [ProductController::class,'productList']);

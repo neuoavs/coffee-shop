@@ -50,7 +50,7 @@ class PositionController extends Controller
             Position::create($data);
             return response()->json(['success' => true]);
         } catch (\Exception $e) {
-            return response()->json(['success'=> false,'error'=> 'Unable to add your position. The position may already exist or the information may be duplicated. Please check again!']);
+            return response()->json(['success'=> false,'error'=> 'Unable to add your position. The name may be duplicated. Please check again!']);
         }
     }
 

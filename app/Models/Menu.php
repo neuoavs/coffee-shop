@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Menu extends Model
 {
@@ -12,10 +11,10 @@ class Menu extends Model
     protected $primaryKey = 'id';
     protected $table = 'menus';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'active'];
 
-    public function product(): HasMany
-    {
-        return $this->hasMany(Product::class, 'menu_id');
-    }
+    // public function employee(): HasMany
+    // {
+    //     return $this->hasMany(Employee::class, 'position_id');
+    // }
 }

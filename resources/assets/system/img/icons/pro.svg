@@ -1,0 +1,14 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Coffee Cup -->
+  <path d="M4 12C4 10 6 9 8 9C10 9 12 10 12 12H4Z" fill="#637381"/>
+  
+  <!-- Cup Handle -->
+  <path d="M12 10C13 10 13.5 10.5 13.5 11.5C13.5 12.5 13 13 12 13" stroke="#637381" stroke-width="0.5"/>
+  
+  <!-- Steam Lines -->
+  <path d="M6.5 7C6.5 6.5 6.5 5.5 7 5.5" stroke="#637381" stroke-width="0.5"/>
+  <path d="M8.5 7C8.5 6.5 8.5 5.5 9 5.5" stroke="#637381" stroke-width="0.5"/>
+  
+  <!-- Plate -->
+  <rect x="2" y="13.5" width="12" height="1" rx="0.5" fill="#637381"/>
+</svg>
