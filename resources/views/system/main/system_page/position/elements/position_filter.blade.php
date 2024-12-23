@@ -5,7 +5,9 @@
       <div class="col-lg-2 col-sm-6 col-12">
         <div class="form-group">
           <select class="select" id="position-filter-active" name="position-filter-active">
-            <option selected value="">Choose active</option>
+            <option selected value="all">Choose active</option>
+            <option value="1">On</option>
+            <option value="0">Off</option>
           </select>
         </div>
       </div>

@@ -31,6 +31,63 @@ class PositionController extends Controller
         return view("system.main.system_page.position.main.position_edit", ["position"=> $position]);
     }
 
+    public function deletePostion($id){
+        $position = Position::find($id);
+
+        if (!$position) {
+            return response()->json(['success' => false, 'error' => 'Postion not found']);
+        }
+
+        $position->delete();
+        return response()->json(['success' => true]);
+        
+    }
+
+    public function addPostion(Request $request) {
+        $data = $request->all();
+
+        try {
+            Position::create($data);
+            return response()->json(['success' => true]);
+        } catch (\Exception $e) {
+            return response()->json(['success'=> false,'error'=> 'Unable to add your position. The position may already exist or the information may be duplicated. Please check again!']);
+        }
+    }
+
+    public function editPostion(Request $request, $id) {
+        $data = $request->all();
+        $position = Position::findOrFail($id);
+        
+        if (!$position) {
+            return response()->json(['success' => false, 'error' => 'Position not found']);
+        }
+
+        try {
+            $position->update($data);
+            return response()->json(['success' => true]);
+        } catch (\Exception $e) {
+            return response()->json(['success'=> false,'error'=> 'Unable to edit your position. The name may be duplicated. Please check again!']);
+        }
+    }
+
+    public function filterPostion(Request $request)
+    {
+        $data = $request->all();
+
+        if ($data['position-filter-active'] === "all") {
+            return response()->json(['positions' => Position::all()]);
+        }
+
+        $positions = Position::where('active', $data['position-filter-active'])->get();
+
+        if (!$positions) {
+            return response()->json(['positions' => []]);
+        }
+
+        return response()->json(['positions' => $positions]);
+    }
+
+
     private function authAccess()
     {
         if (!Session::get('id')) {

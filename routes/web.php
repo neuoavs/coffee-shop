@@ -28,10 +28,10 @@ Route::get('/filter-branch', [BranchController::class, 'filterBranch']);
 Route::get('/position-list', [PositionController::class,'positionList']);
 Route::get('/position-add', [PositionController::class,'positionAdd']);
 Route::get('/position-edit/{id}', [PositionController::class,'positionEdit']);
-Route::get('/delete-position/{id}', [PositionController::class,'deleteBranch']);
-Route::post('/add-position', [PositionController::class,'addBranch']);
-Route::post('/edit-position/{id}', [PositionController::class, 'editBranch']);
-Route::get('/filter-position', [PositionController::class, 'filterBranch']);
+Route::get('/delete-position/{id}', [PositionController::class,'deletePostion']);
+Route::post('/add-position', [PositionController::class,'addPostion']);
+Route::post('/edit-position/{id}', [PositionController::class, 'editPostion']);
+Route::get('/filter-position', [PositionController::class, 'filterPostion']);
 
 
 //Product

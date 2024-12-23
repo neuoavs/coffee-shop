@@ -26,9 +26,9 @@
         <td>{{$pos->name}}</td>
         <td>
           @if ($pos->active)
-            <img id = "edit-img" src="{{asset('resources/assets/system/img/icons/ac.svg')}}" alt="img" />
+            <img id = "ac-img" src="{{asset('resources/assets/system/img/icons/ac.svg')}}" alt="img" />
           @else
-            <img id = "edit-img" src="{{asset('resources/assets/system/img/icons/inac.svg')}}" alt="img" />
+            <img id = "inac-img" src="{{asset('resources/assets/system/img/icons/inac.svg')}}" alt="img" />
           @endif
         </td>
         <td>
