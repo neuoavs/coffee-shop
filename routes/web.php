@@ -7,6 +7,7 @@ use App\Http\Controllers\PositionController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\ViolationController;
 use Illuminate\Support\Facades\Route;
 
 //System
@@ -52,6 +53,15 @@ Route::get('/delete-menu/{id}', [MenuController::class,'deleteMenu']);
 Route::post('/add-menu', [MenuController::class,'addMenu']);
 Route::post('/edit-menu/{id}', [MenuController::class, 'editMenu']);
 Route::get('/filter-menu', [MenuController::class, 'filterMenu']);
+
+//Violation
+Route::get('/violation-list', [ViolationController::class,'violationList']);
+Route::get('/violation-add', [ViolationController::class,'violationAdd']);
+Route::get('/violation-edit/{id}', [ViolationController::class,'violationEdit']);
+Route::get('/delete-violation/{id}', [ViolationController::class,'deleteViolation']);
+Route::post('/add-violation', [ViolationController::class,'addViolation']);
+Route::post('/edit-violation/{id}', [ViolationController::class, 'editViolation']);
+Route::get('/filter-violation', [ViolationController::class, 'filterViolation']);
 
 //Product
 // Route::get('/product-list', [ProductController::class,'productList']);

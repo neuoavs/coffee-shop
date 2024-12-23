@@ -10,7 +10,7 @@ session_start();
 
 class UnitController extends Controller
 {
-     //Unit List View
+    //Unit List View
      public function unitList() {
         $this->authAccess();
         return view("system.main.system_page.unit.main.unit_list", ["units"=> Unit::all()]);
