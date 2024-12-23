@@ -17,7 +17,7 @@
       </span>
     </a>
 
-    <ul class="nav user-menu">
+    {{-- <ul class="nav user-menu">
       <li class="nav-item dropdown has-arrow main-drop">
         <a
           href="javascript:void(0);"
@@ -37,8 +37,8 @@
                 <span class="status online"></span
               ></span>
               <div class="profilesets">
-                <h6>John Doe</h6>
-                <h5>Admin</h5>
+                <h6>{{Session::get('nickname')}}</h6>
+                <h5>{{Session::get('position')}}</h5>
               </div>
             </div>
             <hr class="m-0" />
@@ -59,5 +59,5 @@
           </div>
         </div>
       </li>
-    </ul>
+    </ul> --}}
 </div>

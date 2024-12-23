@@ -7,6 +7,7 @@
                 </li>
                 @include('system.elements.system_page.branch')
                 @include('system.elements.system_page.product')
+                @include('system.elements.system_page.profile')
             </ul>
         </div>
     </div>
