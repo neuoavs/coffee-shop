@@ -47,50 +47,36 @@ class BranchController extends Controller
     public function addBranch(Request $request) {
         $data = $request->all();
 
-        $isExist = Branch::where('name', $data['name'])
-        ->where('address', $data['address'])
-        ->where('province', $data['province'])->exists();
-
-
-        if ($isExist) {
-            return response()->json(['success' => false, 'error' => 'This branch is readly exist']);
-        }
-
-        $branch = Branch::create($data);
-        
-        if ($branch) {
+        try {
+            Branch::create($data);
             return response()->json(['success' => true]);
-        } 
-        return response()->json(['success' => false, 'error' => 'Can not add your branch']);
+        } catch (\Exception $e) {
+            return response()->json(['success'=> false,'error'=> 'Unable to add your branch. The branch may already exist or the information may be duplicated. Please check again!']);
+        }
     }
 
     public function editBranch(Request $request, $id) {
         $data = $request->all();
-        $branch = Branch::find($id);
-        $isExist = false;
+        $branch = Branch::findOrFail($id);
         
         if (!$branch) {
             return response()->json(['success' => false, 'error' => 'Branch not found']);
         }
 
-        if ($branch->province === $data['province']) {
-            if ($branch->name !== $data['name'] && $branch->address === $data['address']) {
-                $isExist = Branch::where('name', $data['name'])->where('province', $data['province'])->exists();
-            } else if ($branch->name === $data['name'] && $branch->address !== $data['address']) {
-                $isExist = Branch::where('address', $data['address'])->where('province', $data['province'])->exists();
-            }
+        // Nếu name, address, province không thay đổi thì district và ward không được thay dổi
+        if ($branch->address === $data['address']
+        && $branch->province === $data['province']
+        && ($branch->district !== $data['district']
+        || $branch->ward !== $data['ward'])) {
+            return response()->json(['success'=> false,'error'=> 'The district and the ward cannot be changed if the name, the address and the province remain unchanged. Please check again!']);
         }
 
-        if ($isExist) {
-            return response()->json(['success' => false, 'error' => 'This new information duplicates an existing branch']);
+        try {
+            $branch->update($data);
+            return response()->json(['success' => true]);
+        } catch (\Exception $e) {
+            return response()->json(['success'=> false,'error'=> 'Unable to edit your branch. The information may be duplicated. Please check again!']);
         }
-        
-        if (!$branch->update($data)) {
-            return response()->json(['success'=> false,'error'=> 'Can not edit this branch']);
-        }
-        
-        return response()->json(['success' => true]);
-        
     }
 
     public function filterBranch(Request $request)

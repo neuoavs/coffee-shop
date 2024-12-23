@@ -9,16 +9,16 @@
   <div class="content">
     <div class="page-header">
       <div class="page-title">
-        <h4>Branch List</h4>
-        <h6><strong>Branch</strong>/Branch List</h6>
+        <h4>Position List</h4>
+        <h6><strong>Position</strong>/Position List</h6>
       </div>
       <div class="page-btn">
-        <a href="{{URL::to('/branch-add')}}" class="btn btn-added">
+        <a href="{{URL::to('/position-add')}}" class="btn btn-added">
           <img
             src="{{asset('resources/assets/system/img/icons/plus.svg')}}"
             class="me-1"
             alt="img"
-          />Add New Branch
+          />Add New Position
         </a>
       </div>
     </div>
@@ -26,15 +26,15 @@
     <div class="card">
       <div class="card-body">
         {{-- Print page --}}
-        @include('system.main.system_page.branch.elements.branch_search')
+        @include('system.main.system_page.position.elements.position_search')
         {{-- End print page --}}
 
         {{-- Search page --}}
-        @include('system.main.system_page.branch.elements.branch_filter')
+        @include('system.main.system_page.position.elements.position_filter')
         {{-- End search page --}}
         
         {{-- Table page --}}
-        @include('system.main.system_page.branch.elements.branch_table')
+        @include('system.main.system_page.position.elements.position_table')
         {{-- End table page --}}
       </div>
     </div>
@@ -54,7 +54,5 @@
 
 <script src="{{asset('resources/assets/system/js/axios.min.js')}}"></script>
 
-<script src="{{asset('resources/assets/system/plugins/vietnam_select/vietnam_select.js')}}"></script>
-
-<script src="{{asset('resources/assets/system/js/branch-filter.js')}}"></script>
+<script src="{{asset('resources/assets/system/js/position-filter.js')}}"></script>
 @endsection

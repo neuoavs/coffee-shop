@@ -13,7 +13,7 @@ class Position extends Model
     protected $primaryKey = 'id';
     protected $table = 'positions';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name', 'active'];
 
     public function employee(): HasMany
     {

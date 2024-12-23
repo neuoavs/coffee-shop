@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('position_id');
-            $table->foreign('position_id')->references('id')->on('positions')->onDelete('cascade');
+            $table->unsignedInteger('position_id')->nullable();
+            $table->foreign('position_id')->references('id')->on('positions')->onDelete('cascade')->onUpdate('cascade');
             $table->string('password');
             $table->string('full_name', 40);
             $table->string('nick_name', 20);
@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('phone_number', 11);
             $table->integer('salary_coefficient');
 
+            //Rằng buộc
+            $table->unique(['nick_name', 'citizen_identification', 'phone_number']);
         });
     }
 

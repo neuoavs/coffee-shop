@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('positions', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 20);
+            $table->boolean('active')->default(1);
+            $table->unique('name');
+
         });
     }
 
