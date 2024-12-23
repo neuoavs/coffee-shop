@@ -1,0 +1,22 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <rect x="1" y="1" width="14" height="1" fill="#FFFFFF"/>
+    <line x1="1" y1="3" x2="1" y2="1" stroke="#637381" stroke-width="0.5"/>
+    <line x1="3" y1="3" x2="3" y2="1" stroke="#637381" stroke-width="0.5"/>
+    <line x1="5" y1="3" x2="5" y2="1" stroke="#637381" stroke-width="0.5"/>
+    <line x1="7" y1="3" x2="7" y2="1" stroke="#637381" stroke-width="0.5"/>
+    <line x1="9" y1="3" x2="9" y2="1" stroke="#637381" stroke-width="0.5"/>
+    <line x1="11" y1="3" x2="11" y2="1" stroke="#637381" stroke-width="0.5"/>
+    <line x1="13" y1="3" x2="13" y2="1" stroke="#637381" stroke-width="0.5"/>
+    
+
+    <path d="M4 5H12V9H4V5Z" fill="#FFFFFF"/>
+    <path d="M4 9C3.44772 9 3 9.44772 3 10V11C3 11.5523 3.44772 12 4 12H12C12.5523 12 13 11.5523 13 11V10C13 9.44772 12.5523 9 12 9H4Z" fill="#637381"/>
+    
+
+    <rect x="8" y="12" width="1" height="3" fill="#637381"/>
+    <polygon points="7.5,12 8.5,12 8,13" fill="#637381"/>
+    
+    <line x1="4" y1="6" x2="12" y2="6" stroke="#637381" stroke-width="0.5"/>
+    <line x1="4" y1="7" x2="12" y2="7" stroke="#637381" stroke-width="0.5"/>
+    <line x1="4" y1="8" x2="12" y2="8" stroke="#637381" stroke-width="0.5"/>
+</svg>

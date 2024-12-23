@@ -3,12 +3,12 @@ $(document).ready(function () {
     let srcImgDelete = $('#delete-img').attr('src');
     let srcImgAc = $('#ac-img').attr('src');
     let srcImgInac = $('#inac-img').attr('src');
-    let urlEditPosition = "http://localhost/dacs2/position-edit/";
+    let urlEditUnit = "http://localhost/dacs2/unit-edit/";
 
-    function ajaxFilterposition(data) {
+    function ajaxFilterunit(data) {
         let row = "";
 
-        data.positions.forEach(function (position) {
+        data.units.forEach(function (unit) {
 
             row +=
                 '<tr>'
@@ -18,8 +18,8 @@ $(document).ready(function () {
                 + '<span class="checkmarks"></span>'
                 + '</label>'
                 + '</td>'
-                + '<td>' + position.name + '</td>';
-            if (position.active) {
+                + '<td>' + unit.name + '</td>';
+            if (unit.active) {
                 row +=
                     '<td>'
                     + '<img id = "ac-img" src="' + srcImgAc + '" alt="img" />'
@@ -32,10 +32,10 @@ $(document).ready(function () {
             }
             row +=
                 '<td>'
-                + '<a class="me-3" href="' + urlEditPosition + position.id + '">'
+                + '<a class="me-3" href="' + urlEditUnit + unit.id + '">'
                 + '<img id = "edit-img" src="' + srcImgEdit + '" alt="img" />'
                 + '</a>'
-                + '<a class="me-3 delete-confirm" href="javascript:void(0);" data-model="position" data-id="' + position.id + '" data-name="' + position.name + '">'
+                + '<a class="me-3 delete-confirm" href="javascript:void(0);" data-model="unit" data-id="' + unit.id + '" data-name="' + unit.name + '">'
                 + '<img id = "delete-img" src="' + srcImgDelete + '" alt="img" />'
                 + '</a>'
                 + '</td>'
@@ -45,21 +45,21 @@ $(document).ready(function () {
         return row;
     }
 
-    $('#position-filter-active').change(function () {
-        $('#position-filter').submit();
+    $('#unit-filter-active').change(function () {
+        $('#unit-filter').submit();
     });
 
-    $('#position-filter').submit(function (e) {
+    $('#unit-filter').submit(function (e) {
         e.preventDefault();
 
         $.ajax({
-            url: "http://localhost/dacs2/filter-position",
+            url: "http://localhost/dacs2/filter-unit",
             type: "GET",
-            data: $('#position-filter').serialize(),
+            data: $('#unit-filter').serialize(),
             dataType: "json",
             success: function (response) {
-                let rows = ajaxFilterposition(response);
-                $('#position-table').html(rows);
+                let rows = ajaxFilterunit(response);
+                $('#unit-table').html(rows);
             },
             error: function (error) {
                 console.error("Error: " + error);

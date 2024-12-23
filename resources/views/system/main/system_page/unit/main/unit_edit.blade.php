@@ -8,19 +8,19 @@
     <div class="content">
       <div class="page-header">
         <div class="page-title">
-          <h4>Edit Position</h4>
-          <h6><strong>Position</strong>/Edit Position</h6>
+          <h4>Edit Unit</h4>
+          <h6><strong>Unit</strong>/Edit Unit</h6>
         </div>
       </div>
       <div class="card">
         <div class="card-body">
-          <form class="row" id="edit-confirm"  method="POST" data-model="position" data-id="{{$position->id}}" data-name="{{$position->name}}">
+          <form class="row" id="edit-confirm"  method="POST" data-model="unit" data-id="{{$unit->id}}" data-name="{{$unit->name}}">
             @csrf
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
             <div class="col-lg-6 col-sm-6 col-12">
               <div class="form-group">
-                <label>Position Name</label>
-                <input type="text" name="name" placeholder="Server" value="{{$position->name}}">
+                <label>Unit Name</label>
+                <input type="text" name="name" placeholder="Server" value="{{$unit->name}}">
               </div>
             </div>
             <div class="col-lg-6 col-sm-6 col-12">
@@ -28,7 +28,7 @@
                 <label>Active</label>
                 <select class="select" name="active" id="active">
                   <option disabled selected value="">Choose</option>
-                  @if ($position->active)
+                  @if ($unit->active)
                     <option selected value="1">On</option>
                     <option value="0">Off</option>
                   @else
@@ -40,7 +40,7 @@
             </div>
             <div class="col-lg-12">
               <button type="submit" class="btn btn-submit me-2">Change</button>
-              <a href="{{URL::to('/position-list')}}" class="btn btn-cancel">Back</a>
+              <a href="{{URL::to('/unit-list')}}" class="btn btn-cancel">Back</a>
             </div>
           </form>
         </div>

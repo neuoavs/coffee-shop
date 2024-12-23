@@ -2,7 +2,6 @@ $(document).ready(function () {
     // Hàm xử lý Ajax filter cho branch
     let srcImgEdit = $('#edit-img').attr('src');
     let urlEditBranch = "http://localhost/dacs2/branch-edit/";
-    // let urlEditProduct = "http://localhost/dacs2/product-edit/";
     let srcImgDelete = $('#delete-img').attr('src');
 
     function ajaxFilterBranch(data) {

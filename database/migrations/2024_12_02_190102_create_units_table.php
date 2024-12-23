@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('units', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name', 10);
+            $table->boolean('active')->default(1);
+            $table->unique('name');
         });
     }
 
