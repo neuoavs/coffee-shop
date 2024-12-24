@@ -13,7 +13,7 @@ class Menu extends Model
 
     protected $fillable = ['name', 'active'];
 
-    public function product(): HasMany
+    public function products(): HasMany
     {
         return $this->hasMany(Product::class, 'menu_id');
     }

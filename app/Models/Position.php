@@ -15,7 +15,7 @@ class Position extends Model
 
     protected $fillable = ['name', 'active'];
 
-    public function employee(): HasMany
+    public function employees(): HasMany
     {
         return $this->hasMany(Employee::class, 'position_id');
     }

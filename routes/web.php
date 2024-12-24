@@ -10,6 +10,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ViolationController;
 use App\Http\Controllers\ShiftController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\BranchEmployeeController;
 use Illuminate\Support\Facades\Route;
 
 //System
@@ -92,3 +93,13 @@ Route::post('/add-employee', [EmployeeController::class,'addEmployee']);
 Route::get('/delete-employee/{id}', [EmployeeController::class,'deleteEmployee']);
 Route::post('/edit-employee/{id}', [EmployeeController::class, 'editEmployee']);
 Route::get('/filter-employee', [EmployeeController::class, 'filterEmployee']);
+
+
+// Branch Employee
+Route::get('/branch-employee-list', [BranchEmployeeController::class,'branchEmployeeList']);
+Route::get('/branch-employee-add', [BranchEmployeeController::class,'branchEmployeeAdd']);
+Route::get('/branch-employee-edit/{id}', [BranchEmployeeController::class,'branchEmployeeEdit']);
+Route::post('/add-branch-employee', [BranchEmployeeController::class,'addBranchEmployee']);
+Route::get('/delete-branch-employee/{id}', [BranchEmployeeController::class,'deleteBranchEmployee']);
+Route::post('/edit-branch-employee/{id}', [BranchEmployeeController::class, 'editBranchEmployee']);
+Route::get('/filter-branch-employee', [BranchEmployeeController::class, 'filterBranchEmployee']);
