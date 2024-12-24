@@ -24,7 +24,7 @@
               <div class="form-group">
                 <label>Provine</label>
                 <select class="select" name="menu_id" id="menu_id">
-                  <option disabled selected value="">Choose</option>
+                  <option disabled value="">Choose</option>
                   @foreach ($menus as $m)
                   @if ($m->id === $product->menu->id)
                   <option value="{{$m->id}}" selected>{{$m->name}}</option>

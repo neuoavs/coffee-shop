@@ -20,14 +20,14 @@
             <div class="col-lg-6 col-sm-6 col-12">
               <div class="form-group">
                 <label>Unit Name</label>
-                <input type="text" name="name" placeholder="Server" value="{{$unit->name}}">
+                <input type="text" name="name" placeholder="kg" value="{{$unit->name}}">
               </div>
             </div>
             <div class="col-lg-6 col-sm-6 col-12">
               <div class="form-group">
                 <label>Active</label>
                 <select class="select" name="active" id="active">
-                  <option disabled selected value="">Choose</option>
+                  <option disabled value="">Choose</option>
                   @if ($unit->active)
                     <option selected value="1">On</option>
                     <option value="0">Off</option>

@@ -77,9 +77,9 @@ const renderData = (array, select) => {
             break;
     }
     if (select === "branch-filter-province") {
-        document.querySelector("#" + select).innerHTML = rowFilter;
+        $("#" + select).html(rowFilter);
     } else {
-        document.querySelector("#" + select).innerHTML = row;
+        $("#" + select).html(row);
     }
 };
 

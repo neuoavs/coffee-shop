@@ -39,7 +39,7 @@
               <div class="form-group">
                 <label>Provine</label>
                 <select class="select" name="province" id="province">
-                  <option disabled selected value="">Choose</option>
+                  <option disabled value="">Choose</option>
                 </select>
               </div>
             </div>
@@ -47,7 +47,7 @@
               <div class="form-group">
                 <label>District</label>
                 <select class="select" name="district" id="district">
-                  <option disabled selected value="">Choose</option>
+                  <option disabled value="">Choose</option>
                 </select>
               </div>
             </div>
@@ -55,7 +55,7 @@
               <div class="form-group">
                 <label>Ward</label>
                 <select class="select" name="ward" id ="ward">
-                  <option disabled selected value="">Choose</option>
+                  <option disabled value="">Choose</option>
                 </select>
               </div>
             </div>

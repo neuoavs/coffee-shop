@@ -12,8 +12,13 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('shifts', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
+            $table->increments('id');
+            $table->string('name', 20);
+            $table->time('begin_time', $precision = 0);
+            $table->time('end_time', $precision = 0);
+            $table->boolean('active')->default(1);
+            $table->unique('name');
+            $table->unique(['begin_time', 'end_time']);
         });
     }
 

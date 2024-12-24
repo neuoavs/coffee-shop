@@ -8,6 +8,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UnitController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ViolationController;
+use App\Http\Controllers\ShiftController;
 use Illuminate\Support\Facades\Route;
 
 //System
@@ -62,6 +63,16 @@ Route::get('/delete-violation/{id}', [ViolationController::class,'deleteViolatio
 Route::post('/add-violation', [ViolationController::class,'addViolation']);
 Route::post('/edit-violation/{id}', [ViolationController::class, 'editViolation']);
 Route::get('/filter-violation', [ViolationController::class, 'filterViolation']);
+
+//Shift
+Route::get('/shift-list', [ShiftController::class,'shiftList']);
+Route::get('/shift-add', [ShiftController::class,'shiftAdd']);
+Route::get('/shift-edit/{id}', [ShiftController::class,'shiftEdit']);
+Route::get('/delete-shift/{id}', [ShiftController::class,'deleteShift']);
+Route::post('/add-shift', [ShiftController::class,'addShift']);
+Route::post('/edit-shift/{id}', [ShiftController::class, 'editShift']);
+Route::get('/filter-shift', [ShiftController::class, 'filterShift']);
+
 
 //Product
 // Route::get('/product-list', [ProductController::class,'productList']);
