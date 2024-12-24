@@ -13,8 +13,8 @@ class Menu extends Model
 
     protected $fillable = ['name', 'active'];
 
-    // public function employee(): HasMany
-    // {
-    //     return $this->hasMany(Employee::class, 'position_id');
-    // }
+    public function product(): HasMany
+    {
+        return $this->hasMany(Product::class, 'menu_id');
+    }
 }
