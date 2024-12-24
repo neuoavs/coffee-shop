@@ -9,87 +9,76 @@
     <div class="content">
       <div class="page-header">
         <div class="page-title">
-          <h4>Edit Product</h4>
-          <h6><strong>Product</strong>/Edit Product</h6>
+          <h4>Add Item</h4>
+          <h6><strong>Item</strong>/Add Item</h6>
         </div>
       </div>
       <div class="card">
         <div class="card-body">
-          <form class="row" id="edit-confirm" method="POST" data-model="product" enctype="multipart/form-data" data-id="{{$product->id}}" data-name="{{$product->name}}">
+          <form class="row" id="add-confirm"  method="POST" data-model="item">
             @csrf
             <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-            <div class="col-lg-6 col-sm-6 col-12">
+            <div class="col-lg-4 col-sm-6 col-12">
               <div class="form-group">
-                <label>Product Name</label>
-                <input type="text" name="name" placeholder="Brown Coffee" value="{{$product->name}}">
+                <label>Name</label>
+                <input type="text" name="name" placeholder="Fresh milk">
               </div>
             </div>
-            
-            <div class="col-lg-6 col-sm-6 col-12">
+            <div class="col-lg-4 col-sm-6 col-12">
               <div class="form-group">
-                <label>Menu</label>
-                <select class="select" name="menu_id" id="menu_id">
-                  <option disabled value="">Choose</option>
-                  @foreach ($menus as $me)
-                    @if ($me->id === $product->menu->id)
-                    <option value="{{$me->id}}" selected>{{$me->name}}</option>
-                    @else
-                    <option value="{{$me->id}}">{{$me->name}}</option>
-                    @endif
+                <label>Amount</label>
+                <input type="text" name="amount" placeholder="23">
+              </div>
+            </div>
+            <div class="col-lg-4 col-sm-6 col-12">
+              <div class="form-group">
+                <label>Unit</label>
+                <select class="select" name="unit_id" id="unit_id">
+                  <option disabled selected value="">Choose</option>
+                  @foreach ($units as $un)
+                    <option value="{{$un->id}}">{{$un->name}}</option>
                   @endforeach
                 </select>
               </div>
             </div>
-                        
             <div class="col-lg-6 col-sm-6 col-12">
               <div class="form-group">
-                <label>Price</label>
-                <select name="price" id="price" class="select">
-                  <option disabled value="">Choose</option>
-                  @for ($i = 14000; $i <= 69000; $i+=5000)
-                    @if ($i === $product->price)
-                      <option selected value="{{$i}}">{{$i}}</option>
-                    @else
-                      <option value="{{$i}}">{{$i}}</option>
-                    @endif
-                  @endfor
+                <label>Branch</label>
+                <select class="select" name="branch_id" id="branch_id">
+                  <option disabled selected value="">Choose</option>
+                  @foreach ($branches as $br)
+                    <option value="{{$br->id}}">{{$br->name}}</option>
+                  @endforeach
                 </select>
               </div>
-            </div> 
-
+            </div>
             <div class="col-lg-6 col-sm-6 col-12">
               <div class="form-group">
                 <label>Active</label>
                 <select class="select" name="active" id="active">
-                  <option disabled value="">Choose</option>
-                  @if ($product->active)
-                    <option selected value="1">On</option>
-                    <option value="0">Off</option>
-                  @else
-                    <option value="1">On</option>
-                    <option selected value="0">Off</option>
-                  @endif
+                  <option disabled selected value="">Choose</option>
+                  <option value="1">On</option>
+                  <option value="0">Off</option>
                 </select>
               </div>
             </div>
-
             <div class="col-lg-12">
               <div class="form-group">
                   <label>Image</label>
                   <div class="image-upload">
                     <input type="file" name="image" id="image" accept="image/*">
                       <div class="image-uploads">
-                          <img id="preview"
-                          src="{{asset($product->image)}}" 
+                          <img id="preview" 
+                          src="{{asset('resources/assets/system/img/icons/upl.svg')}}" 
                           alt="img"/>
-                          <h4 id="drop-image"></h4>
+                          <h4 id="drop-image">Drag and drop a file to upload</h4>
                       </div>
                   </div>
               </div>
             </div>
             <div class="col-lg-12">
-              <button type="submit" class="btn btn-submit me-2">Change</button>
-              <a href="{{URL::to('/product-list')}}" class="btn btn-cancel">Back</a>
+              <button type="submit" class="btn btn-submit me-2">Submit</button>
+              <a href="{{URL::to('/item-list')}}" class="btn btn-cancel">Back</a>
             </div>
           </form>
         </div>
@@ -112,3 +101,4 @@
 
 <script src="{{asset('resources/assets/system/js/image.js')}}"></script>
 @endsection
+

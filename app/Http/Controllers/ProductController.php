@@ -43,7 +43,7 @@ class ProductController extends Controller
             Product::create($data);
             return response()->json(['success' => true]);
         } catch (\Exception $th) {
-            return response()->json(['success' => false, 'error' => 'Unable to add your position. The information may be duplicated or not valid. Please check again!']);
+            return response()->json(['success' => false, 'error' => 'Unable to add your product. The information may be duplicated or not valid. Please check again!']);
         }
     }
 
@@ -104,7 +104,7 @@ class ProductController extends Controller
             $product->update($data);
             return response()->json(['success' => true]);
         } catch (\Exception $th) {
-            return response()->json(['success' => false, 'error' => 'Unable to add your position. The information may be duplicated or not valid. Please check again!']);
+            return response()->json(['success' => false, 'error' => 'Unable to add your product. The information may be duplicated or not valid. Please check again!']);
         }
     }
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ViolationController;
 use App\Http\Controllers\ShiftController;
 use App\Http\Controllers\EmployeeController;
+use App\Http\Controllers\ItemController;
 use App\Http\Controllers\BranchEmployeeController;
 use Illuminate\Support\Facades\Route;
 
@@ -103,3 +104,12 @@ Route::post('/add-branch-employee', [BranchEmployeeController::class,'addBranchE
 Route::get('/delete-branch-employee/{id}', [BranchEmployeeController::class,'deleteBranchEmployee']);
 Route::post('/edit-branch-employee/{id}', [BranchEmployeeController::class, 'editBranchEmployee']);
 Route::get('/filter-branch-employee', [BranchEmployeeController::class, 'filterBranchEmployee']);
+
+//Employee
+Route::get('/item-list', [ItemController::class,'itemList']);
+Route::get('/item-add', [ItemController::class,'itemAdd']);
+Route::get('/item-edit/{id}', [ItemController::class,'itemEdit']);
+Route::post('/add-item', [ItemController::class,'addItem']);
+Route::get('/delete-item/{id}', [ItemController::class,'deleteItem']);
+Route::post('/edit-item/{id}', [ItemController::class, 'editItem']);
+Route::get('/filter-item', [ItemController::class, 'filterItem']);

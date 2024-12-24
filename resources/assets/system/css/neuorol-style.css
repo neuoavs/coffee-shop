@@ -5587,7 +5587,7 @@ span.select2-container.select2-container--default.select2-container--open {
     flex-direction: column;
 }
 
-#preview {
+.preview {
     max-height: 70px;
     width: auto;
     object-fit: cover;

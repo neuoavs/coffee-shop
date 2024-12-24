@@ -14,6 +14,7 @@
                 @include('system.elements.system_page.employee')
                 @include('system.elements.system_page.product')
                 @include('system.elements.system_page.branch_employee')
+                @include('system.elements.system_page.item')
                 @include('system.elements.system_page.profile')
             </ul>
         </div>

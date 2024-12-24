@@ -70,14 +70,13 @@
             </div>
             <div class="col-lg-12">
               <div class="form-group">
-                  <label>Product Image</label>
+                  <label>Image</label>
                   <div class="image-upload">
                     <input type="file" name="image" id="image" accept="image/*">
                       <div class="image-uploads">
                           <img id="preview" 
                           src="{{asset('resources/assets/system/img/icons/upl.svg')}}" 
-                          alt="img" 
-                          style="max-height: 70px; width: auto;object-fit: cover;"/>
+                          alt="img" />
                           <h4 id="drop-image">Drag and drop a file to upload</h4>
                       </div>
                   </div>
