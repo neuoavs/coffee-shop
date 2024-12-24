@@ -9,6 +9,7 @@ use App\Http\Controllers\UnitController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ViolationController;
 use App\Http\Controllers\ShiftController;
+use App\Http\Controllers\EmployeeController;
 use Illuminate\Support\Facades\Route;
 
 //System
@@ -83,3 +84,11 @@ Route::get('/delete-product/{id}', [ProductController::class,'deleteProduct']);
 Route::post('/edit-product/{id}', [ProductController::class, 'editProduct']);
 Route::get('/filter-product', [ProductController::class, 'filterProduct']);
 
+//Employee
+Route::get('/employee-list', [EmployeeController::class,'employeeList']);
+Route::get('/employee-add', [EmployeeController::class,'employeeAdd']);
+Route::get('/employee-edit/{id}', [EmployeeController::class,'employeeEdit']);
+Route::post('/add-employee', [EmployeeController::class,'addEmployee']);
+Route::get('/delete-employee/{id}', [EmployeeController::class,'deleteEmployee']);
+Route::post('/edit-employee/{id}', [EmployeeController::class, 'editEmployee']);
+Route::get('/filter-employee', [EmployeeController::class, 'filterEmployee']);

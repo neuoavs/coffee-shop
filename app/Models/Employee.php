@@ -12,7 +12,7 @@ class Employee extends Model
     protected $table = 'employees';
     protected $primaryKey = 'id';
     protected $dateFormat = 'YYYY-MM-DD';
-    protected $fillable = ['position_id','password', 'full_name', 'nick_name', 'birthday', 'citizen_identification', 'phone_number', 'salary_coefficient'];
+    protected $fillable = ['position_id','password', 'full_name', 'nickname', 'birthday', 'citizen_identification', 'phone_number', 'salary_coefficient'];
 
     public function position(): BelongsTo
     {

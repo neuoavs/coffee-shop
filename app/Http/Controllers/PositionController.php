@@ -14,7 +14,7 @@ class PositionController extends Controller
     //Position List View
     public function positionList() {
         $this->authAccess();
-        return view("system.main.system_page.position.main.position_list", ["postions"=> Position::all()]);
+        return view("system.main.system_page.position.main.position_list", ["positions"=> Position::all()]);
     }
 
     //Position Add View

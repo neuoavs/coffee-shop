@@ -102,6 +102,7 @@ $(document).ready(function () {
                             confirmButtonClass: "btn btn-danger",
                         });
                     }
+                    console.log(data.rq);
                 },
                 error: function () {
                     Swal.fire({

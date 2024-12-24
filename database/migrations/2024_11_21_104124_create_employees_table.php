@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('full_name', 40)->nullable();
             $table->string('nickname', 20);
-            $table->date('birthday')->nullable();;
+            $table->date('birthday')->nullable();
             $table->string('citizen_identification', 12);
             $table->string('phone_number', 11);
             $table->integer('salary_coefficient');

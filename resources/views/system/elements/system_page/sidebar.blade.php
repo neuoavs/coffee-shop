@@ -11,6 +11,7 @@
                 @include('system.elements.system_page.menu')
                 @include('system.elements.system_page.violation')
                 @include('system.elements.system_page.shift')
+                @include('system.elements.system_page.employee')
                 @include('system.elements.system_page.product')
                 @include('system.elements.system_page.profile')
             </ul>

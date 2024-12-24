@@ -58,28 +58,7 @@ session_start();
 
     @yield('script')
 
-    <script src="{{asset('resources/assets/system/js/script.js')}}"></script>
-
-
-    {{-- <script src="{{asset('resources/assets/system/js/jquery.dataTables.min.js')}}"></script>
-    
-    <script src="{{asset('resources/assets/system/js/dataTables.bootstrap4.min.js')}}"></script>
-
-    <script src="{{asset('resources/assets/system/plugins/select2/js/select2.min.js')}}"></script>
-
-    <script src="{{asset('resources/assets/system/plugins/sweetalert/sweetalert2.all.min.js')}}"></script>
-
-    <script src="{{asset('resources/assets/system/js/sweetalert.js')}}"></script>
-
-    <script src="{{asset('resources/assets/system/js/axios.min.js')}}"></script>
-
-    <script src="{{asset('resources/assets/system/plugins/vietnam_select/vietnam_select.js')}}"></script>
-
-    <script src="{{asset('resources/assets/system/js/branch-filter.js')}}"></script>
-    
-    <script src="{{asset('resources/assets/system/js/product-filter.js')}}"></script>
-    
-    <script src="{{asset('resources/assets/system/js/image.js')}}"></script> --}}
+    <script src="{{asset('resources/assets/system/js/neuorol-script.js')}}"></script>
 </body>
 
 </html>

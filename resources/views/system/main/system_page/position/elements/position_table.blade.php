@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody id="position-table" class="model-table">
-      @foreach ($postions as $pos)
+      @foreach ($positions as $pos)
       <tr>
         <td>
           <label class="checkboxs">
