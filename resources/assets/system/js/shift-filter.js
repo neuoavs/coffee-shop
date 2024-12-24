@@ -5,7 +5,7 @@ $(document).ready(function () {
     let srcImgInac = $('#inac-img').attr('src');
     let urlEditShift = "http://localhost/dacs2/shift-edit/";
 
-    function ajaxFiltershift(data) {
+    function ajaxFilterShift(data) {
         let row = "";
 
         data.shifts.forEach(function (shift) {
@@ -62,7 +62,7 @@ $(document).ready(function () {
             data: $('#shift-filter').serialize(),
             dataType: "json",
             success: function (response) {
-                let rows = ajaxFiltershift(response);
+                let rows = ajaxFilterShift(response);
                 $('#shift-table').html(rows);
             },
             error: function (error) {

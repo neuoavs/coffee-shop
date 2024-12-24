@@ -75,11 +75,11 @@ Route::get('/filter-shift', [ShiftController::class, 'filterShift']);
 
 
 //Product
-// Route::get('/product-list', [ProductController::class,'productList']);
-// Route::get('/product-add', [ProductController::class,'productAdd']);
-// Route::get('/product-edit/{id}', [ProductController::class,'productEdit']);
-// Route::post('/add-product', [ProductController::class,'addProduct']);
-// Route::get('/delete-product/{id}', [ProductController::class,'deleteProduct']);
-// Route::post('/edit-product/{id}', [ProductController::class, 'editProduct']);
-// Route::get('/filter-product', [ProductController::class, 'filterProduct']);
+Route::get('/product-list', [ProductController::class,'productList']);
+Route::get('/product-add', [ProductController::class,'productAdd']);
+Route::get('/product-edit/{id}', [ProductController::class,'productEdit']);
+Route::post('/add-product', [ProductController::class,'addProduct']);
+Route::get('/delete-product/{id}', [ProductController::class,'deleteProduct']);
+Route::post('/edit-product/{id}', [ProductController::class, 'editProduct']);
+Route::get('/filter-product', [ProductController::class, 'filterProduct']);
 

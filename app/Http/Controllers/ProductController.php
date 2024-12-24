@@ -26,7 +26,9 @@ class ProductController extends Controller
 
     public function addProduct(Request $request) {
         $data = $request->all();
-        $fileName = "product" . '_' .$request->file('image')->getClientOriginalName();
+        
+        //Xử lý ảnh
+        $fileName = "product" . '-' .str_replace(' ', '-', $data['name']). '.png';
         $path = $request->file('image')->move(base_path('resources/assets/system/img/products'), $fileName);
         
         if (!$path) {
@@ -35,13 +37,14 @@ class ProductController extends Controller
         
         $path = "resources/assets/system/img/products/".$fileName;
         $data["image"] = $path;
-        $product = Product::create($data);
+        //Xử lý ảnh
         
-        if (!$product) {
-            return response()->json(['success' => false, 'error' => 'Can not add your product']);
+        try {
+            Product::create($data);
+            return response()->json(['success' => true]);
+        } catch (\Exception $th) {
+            return response()->json(['success' => false, 'error' => 'Unable to add your position. The information may be duplicated or not valid. Please check again!']);
         }
-
-        return response()->json(['success' => true]);
     }
 
     public function deleteProduct($id){
@@ -67,7 +70,9 @@ class ProductController extends Controller
         if (!$product) {
             return response()->json(['success' => false, 'error' => 'Product not found']);
         }
-    
+        
+
+        // Xử lý ảnh
         $fileRequest = $request->file('image');
         $data = $request->all();
         
@@ -79,7 +84,7 @@ class ProductController extends Controller
                 // So sánh nội dung file cũ và mới
                 if (md5_file($fileRequest->getRealPath()) !== md5_file($oldImagePath)) {
                     File::delete($oldImagePath);
-                    $fileName = "product_" . time() . '_' . $fileRequest->getClientOriginalName(); // Tạo tên file
+                    $fileName = "product" . '-' .str_replace(' ', '-', $data['name']). '.png'; // Tạo tên file
                     $path = $fileRequest->move(base_path('resources/assets/system/img/products'), $fileName);
                     if (!$path) {
                         return response()->json(['success' => false, 'error' => 'Image upload failed']);
@@ -93,52 +98,43 @@ class ProductController extends Controller
             // Nếu không có hình ảnh mới, giữ lại path hình ảnh cũ
             $data["image"] = $product->image; 
         }
-    
-        // Kiểm tra xem tên sản phẩm đã tồn tại chưa
-        if ($product->name !== $data["name"]) {
-            $isExist = Product::where("name", $data["name"])->where('id', '!=', $id)->exists(); // Kiểm tra trừ sản phẩm hiện tại
-            if ($isExist) {
-                return response()->json(['success' => false, 'error' => 'This product already exists']);
-            }
+        // Xử lý ảnh
+
+        try {
+            $product->update($data);
+            return response()->json(['success' => true]);
+        } catch (\Exception $th) {
+            return response()->json(['success' => false, 'error' => 'Unable to add your position. The information may be duplicated or not valid. Please check again!']);
         }
-    
-        // Cập nhật sản phẩm
-        if (!$product->update($data)) {
-            return response()->json(['success'=> false, 'error'=> 'Cannot edit this product']);
-        }
-    
-        return response()->json(['success' => true]);
     }
 
 
     public function filterProduct(Request $request)
     {
-        // $data = $request->all();
-        // $products = null;
+        $data = $request->all();
 
-        // if (!$data['product-filter-menu'] && !$data['product-filter-cost']) {
-        //     return response()->json(['products' => Product::all()]);
-        // }
+        if ($data['product-filter-active'] === "all" && !$data['product-filter-menu'] && !$data['product-filter-price']) {
+            return response()->json(['products' => Product::with("menu")->get()]);
+        }
         
-        // if ($data['product-filter-menu']) {
-        //     if ($data['product-filter-cost']) {
-        //         $product = Product::with('menu')->where('menu_id', $data["product-filter-menu"])->where('cost', '<', $data['product-filter-cost'])->get();
-        //     }
-        //     $products = Product::with('menu')->where('menu_id', $data["product-filter-menu"])->get();
-        // }
+        $products = Product::with('menu')->get();
+        
+        if ($data['product-filter-active'] !== "all") {
+            $products = $products->where('active', $data['product-filter-active']);
+        }
 
-        // if ($data['product-filter-cost']) {
-            
-        //     $products =  Product::with('menu')->where('cost', '<', $data['product-filter-cost']);
-        // }
+        if ($data['product-filter-menu']) {
+            $products = $products->where('menu_id', $data['product-filter-menu']);
+        }
 
-        // if (!$products) {
-        //     return response()->json(['products' => []]);
-        // }
+        if ($data['product-filter-price']) {
+            $products = $products->where('price', '<=', $data['product-filter-price']);
+        }
 
-        // return response()->json(['products' => $products]);
+        if (!$products) {
+            return response()->json(['products' => []]);
+        }
 
-
-        return response()->json(['products' => Product::all()]);
+        return response()->json(['products' => $products]);
     }
 }

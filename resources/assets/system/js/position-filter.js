@@ -5,7 +5,7 @@ $(document).ready(function () {
     let srcImgInac = $('#inac-img').attr('src');
     let urlEditPosition = "http://localhost/dacs2/position-edit/";
 
-    function ajaxFilterposition(data) {
+    function ajaxFilterPosition(data) {
         let row = "";
 
         data.positions.forEach(function (position) {
@@ -58,7 +58,7 @@ $(document).ready(function () {
             data: $('#position-filter').serialize(),
             dataType: "json",
             success: function (response) {
-                let rows = ajaxFilterposition(response);
+                let rows = ajaxFilterPosition(response);
                 $('#position-table').html(rows);
             },
             error: function (error) {

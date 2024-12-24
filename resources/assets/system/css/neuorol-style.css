@@ -2902,6 +2902,7 @@ body[data-layout-mode="dark"] .alertify .ajs-content .ajs-input {
     overflow: auto;
     padding: 15px;
 }
+
 .error-page {
     color: #1f1f1f;
     height: 100vh;
@@ -5585,6 +5586,19 @@ span.select2-container.select2-container--default.select2-container--open {
     height: 100%;
     flex-direction: column;
 }
+
+#preview {
+    max-height: 70px;
+    width: auto;
+    object-fit: cover;
+}
+
+.image-sheet {
+    max-height: 70px;
+    width: auto;
+    object-fit: cover;
+}
+
 .checktoggle {
     background-color: rgba(115, 103, 240, 0.2);
     border-radius: 12px;

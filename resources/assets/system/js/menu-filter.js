@@ -5,7 +5,7 @@ $(document).ready(function () {
     let srcImgInac = $('#inac-img').attr('src');
     let urlEditMenu = "http://localhost/dacs2/menu-edit/";
 
-    function ajaxFiltermenu(data) {
+    function ajaxFilterMenu(data) {
         let row = "";
 
         data.menus.forEach(function (menu) {
@@ -58,7 +58,7 @@ $(document).ready(function () {
             data: $('#menu-filter').serialize(),
             dataType: "json",
             success: function (response) {
-                let rows = ajaxFiltermenu(response);
+                let rows = ajaxFilterMenu(response);
                 $('#menu-table').html(rows);
             },
             error: function (error) {

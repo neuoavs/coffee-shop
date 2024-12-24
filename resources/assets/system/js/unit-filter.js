@@ -5,7 +5,7 @@ $(document).ready(function () {
     let srcImgInac = $('#inac-img').attr('src');
     let urlEditUnit = "http://localhost/dacs2/unit-edit/";
 
-    function ajaxFilterunit(data) {
+    function ajaxFilterUnit(data) {
         let row = "";
 
         data.units.forEach(function (unit) {
@@ -58,7 +58,7 @@ $(document).ready(function () {
             data: $('#unit-filter').serialize(),
             dataType: "json",
             success: function (response) {
-                let rows = ajaxFilterunit(response);
+                let rows = ajaxFilterUnit(response);
                 $('#unit-table').html(rows);
             },
             error: function (error) {

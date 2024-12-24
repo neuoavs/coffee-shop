@@ -5,7 +5,7 @@ $(document).ready(function () {
     let srcImgInac = $('#inac-img').attr('src');
     let urlEditViolation = "http://localhost/dacs2/violation-edit/";
 
-    function ajaxFilterviolation(data) {
+    function ajaxFilterViolation(data) {
         let row = "";
 
         data.violations.forEach(function (violation) {
@@ -63,7 +63,7 @@ $(document).ready(function () {
             data: $('#violation-filter').serialize(),
             dataType: "json",
             success: function (response) {
-                let rows = ajaxFilterviolation(response);
+                let rows = ajaxFilterViolation(response);
                 $('#violation-table').html(rows);
             },
             error: function (error) {

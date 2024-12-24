@@ -15,9 +15,10 @@
     <link rel="stylesheet" href="{{asset('resources/assets/system/css/bootstrap.min.css')}}">
 
     <link rel="stylesheet" href="{{asset('resources/assets/system/plugins/fontawesome/css/fontawesome.min.css')}}">
+    
     <link rel="stylesheet" href="{{asset('resources/assets/system/plugins/fontawesome/css/all.min.css')}}">
 
-    <link rel="stylesheet" href="{{asset('resources/assets/system/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('resources/assets/system/css/neuorol-style.css')}}">
 </head>
 
 <body class="account-page">
@@ -83,7 +84,7 @@
                     </form>
                 </div>
                 <div class="login-img">
-                    <img src="{{asset('resources/assets/system/img/login.jpg')}}" alt="img">
+                    <img src="{{asset('resources/assets/system/img/login-image.jpg')}}" alt="img">
                 </div>
             </div>
         </div>

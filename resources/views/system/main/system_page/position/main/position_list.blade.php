@@ -52,7 +52,5 @@
 
 <script src="{{asset('resources/assets/system/js/sweetalert.js')}}"></script>
 
-<script src="{{asset('resources/assets/system/js/axios.min.js')}}"></script>
-
 <script src="{{asset('resources/assets/system/js/position-filter.js')}}"></script>
 @endsection

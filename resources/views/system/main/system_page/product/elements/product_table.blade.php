@@ -10,8 +10,10 @@
         </th>
           <th>Product name</th>
           <th>Menu name</th>
-          <th>Product image</th>
-          <th>Product cost</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Image</th>
+          <th>Active</th>
           <th>Action</th>
       </tr>
     </thead>
@@ -26,9 +28,17 @@
         </td>
         
         <td>{{$pr->name}}</td>
-        <td>{{$pr->menu->name}}</td> 
-        <td><img src="{{ asset($pr->image) }}" alt="{{ $pr->name }}" style="width: 100px; height: auto;" /></td> 
-        <td>{{$pr->cost}}</td>
+        <td>{{$pr->menu->name}}</td>
+        <td>{{$pr->description}}</td>
+        <td>{{$pr->price}}</td>
+        <td><img class = "image-sheet" src="{{ asset($pr->image) }}" alt="{{ $pr->name }}"/></td> 
+        <td>
+          @if ($pr->active)
+            <img id = "ac-img" src="{{asset('resources/assets/system/img/icons/ac.svg')}}" alt="img" />
+          @else
+            <img id = "inac-img" src="{{asset('resources/assets/system/img/icons/inac.svg')}}" alt="img" />
+          @endif
+        </td>
         <td>
           <a class="me-3" href="{{URL::to('/product-edit'.'/'.$pr->id)}}">
             <img id = "edit-img" src="{{asset('resources/assets/system/img/icons/edit.svg')}}" alt="img" />

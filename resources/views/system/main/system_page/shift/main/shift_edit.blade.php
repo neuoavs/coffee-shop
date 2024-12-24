@@ -2,11 +2,12 @@
   $begin_time = explode(':', $shift->begin_time);
   $end_time = explode(':', $shift->end_time);
 ?>
+@extends('system.main.system_page.system_layout');
+
 @section('style')
 <link rel="stylesheet" href="{{asset('resources/assets/system/plugins/select2/css/select2.min.css')}}"/>
 @endsection
 
-@extends('system.main.system_page.system_layout');
 @section('content')
 <div class="page-wrapper">
     <div class="content">

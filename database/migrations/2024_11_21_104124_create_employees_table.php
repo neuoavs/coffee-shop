@@ -13,12 +13,12 @@ return new class extends Migration
     {
         Schema::create('employees', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('position_id')->nullable();
+            $table->unsignedInteger('position_id');
             $table->foreign('position_id')->references('id')->on('positions')->onDelete('cascade')->onUpdate('cascade');
             $table->string('password');
-            $table->string('full_name', 40);
+            $table->string('full_name', 40)->nullable();
             $table->string('nickname', 20);
-            $table->date('birthday');
+            $table->date('birthday')->nullable();;
             $table->string('citizen_identification', 12);
             $table->string('phone_number', 11);
             $table->integer('salary_coefficient');
