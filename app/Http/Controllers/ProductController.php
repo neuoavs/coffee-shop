@@ -26,19 +26,20 @@ class ProductController extends Controller
 
     public function addProduct(Request $request) {
         $data = $request->all();
-        
-        //Xử lý ảnh
-        $fileName = "product" . '-' .str_replace(' ', '-', $data['name']). '.png';
-        $path = $request->file('image')->move(base_path('resources/assets/system/img/products'), $fileName);
-        
-        if (!$path) {
-            return response()->json(['success' => false, 'error' => 'Image upload failed']);
+
+        $fileRequest = $request->file('image');
+        if ($fileRequest) {
+            $fileName = "product" . '-' .str_replace(' ', '-', $data['name']). '.png';
+            $path = $fileRequest->move(base_path('resources/assets/system/img/products'), $fileName);
+            
+            if (!$path) {
+                return response()->json(['success' => false, 'error' => 'Image upload failed']);
+            }
+            
+            $path = "resources/assets/system/img/products/".$fileName;
+            $data["image"] = $path;
         }
-        
-        $path = "resources/assets/system/img/products/".$fileName;
-        $data["image"] = $path;
-        //Xử lý ảnh
-        
+
         try {
             Product::create($data);
             return response()->json(['success' => true]);
@@ -66,45 +67,37 @@ class ProductController extends Controller
     
     public function editProduct(Request $request, $id) {
         $product = Product::find($id);
-        
+    
         if (!$product) {
             return response()->json(['success' => false, 'error' => 'Product not found']);
         }
+
+        $data = $request->all();
+        $fileRequest = $request->file('image');
         
 
-        // Xử lý ảnh
-        $fileRequest = $request->file('image');
-        $data = $request->all();
-        
-        // Kiểm tra hình ảnh mới có được tải lên không
         if ($fileRequest) {
-            $oldImagePath = base_path($product->image);
-    
-            if (File::exists($oldImagePath)) {
-                // So sánh nội dung file cũ và mới
-                if (md5_file($fileRequest->getRealPath()) !== md5_file($oldImagePath)) {
-                    File::delete($oldImagePath);
-                    $fileName = "product" . '-' .str_replace(' ', '-', $data['name']). '.png'; // Tạo tên file
-                    $path = $fileRequest->move(base_path('resources/assets/system/img/products'), $fileName);
-                    if (!$path) {
-                        return response()->json(['success' => false, 'error' => 'Image upload failed']);
-                    }
-                    $data["image"] = 'resources/assets/system/img/products/' . $fileName; 
-                }
-            } else {
-                return response()->json(['success' => false, 'error' => 'Old image not found']);
+            if ($product->image && file_exists(base_path($product->image))) {
+                unlink(base_path($product->image));
             }
-        } else {
-            // Nếu không có hình ảnh mới, giữ lại path hình ảnh cũ
-            $data["image"] = $product->image; 
+
+            // Save new image
+            $fileName = "product" . '-' .str_replace(' ', '-', $data['name']). '.png';
+            $path = $fileRequest->move(base_path('resources/assets/system/img/products'), $fileName);
+            
+            if (!$path) {
+                return response()->json(['success' => false, 'error' => 'Image upload failed']);
+            }
+            
+            $path = "resources/assets/system/img/products/".$fileName;
+            $data["image"] = $path;
         }
-        // Xử lý ảnh
 
         try {
             $product->update($data);
             return response()->json(['success' => true]);
         } catch (\Exception $th) {
-            return response()->json(['success' => false, 'error' => 'Unable to add your product. The information may be duplicated or not valid. Please check again!']);
+            return response()->json(['success' => false, 'error' => 'Unable to update your product. The information may be duplicated or not valid. Please check again!']);
         }
     }
 

@@ -53,19 +53,20 @@ class ItemController extends Controller
 
     public function addItem(Request $request) {
         $data = $request->all();
-        
-        //Xử lý ảnh
-        $fileName = "item" . '-' .str_replace(' ', '-', $data['name']). '.png';
-        $path = $request->file('image')->move(base_path('resources/assets/system/img/items'), $fileName);
-        
-        if (!$path) {
-            return response()->json(['success' => false, 'error' => 'Image upload failed']);
+
+        $fileRequest = $request->file('image');
+        if ($fileRequest) {
+            $fileName = "item" . '-' .str_replace(' ', '-', $data['name']). '.png';
+            $path = $fileRequest->move(base_path('resources/assets/system/img/items'), $fileName);
+            
+            if (!$path) {
+                return response()->json(['success' => false, 'error' => 'Image upload failed']);
+            }
+            
+            $path = "resources/assets/system/img/items/".$fileName;
+            $data["image"] = $path;
         }
-        
-        $path = "resources/assets/system/img/items/".$fileName;
-        $data["image"] = $path;
-        //Xử lý ảnh
-        
+
         try {
             Item::create($data);
             return response()->json(['success' => true]);
@@ -115,18 +116,22 @@ class ItemController extends Controller
     {
         $data = $request->all();
 
-        if ($data['branch-unit-filter-active'] === "all" && !$data['branch-unit-filter-branch']) {
-            return response()->json(['items' => Item::with(['branch', 'unit'])->where('unit_id','<>', Session::get('id'))->get()]);
+        if ($data['item-filter-active'] === "all" && !$data['item-filter-unit'] && !$data['item-filter-branch']) {
+            return response()->json(['items' => Item::with(['branch', 'unit'])->get()]);
         }
 
-        $items = Item::with(['branch', 'unit'])->where('unit_id','<>', Session::get('id'));
+        $items = Item::with(['branch', 'unit']);
 
-        if ($data['branch-unit-filter-active'] !== "all") {
-            $items = $items->where('active', $data['branch-unit-filter-active']);
+        if ($data['item-filter-active'] !== "all") {
+            $items = $items->where('active', $data['item-filter-active']);
         }
 
-        if ($data['branch-unit-filter-branch']) {
-            $items = $items->where('branch_id', $data['branch-unit-filter-branch']);
+        if ($data['item-filter-unit']) {
+            $items = $items->where('unit_id', $data['item-filter-unit']);
+        }
+
+        if ($data['item-filter-branch']) {
+            $items = $items->where('branch_id', $data['item-filter-branch']);
         }
 
         $items = $items->get();

@@ -11,7 +11,16 @@
           </select>
         </div>
       </div>
-        
+      <div class="col-lg-2 col-sm-6 col-12">
+        <div class="form-group">
+          <select class="select" id="item-filter-unit" name="item-filter-unit">
+            <option selected value="">Choose unit</option>
+            @foreach ($units as $un)
+              <option value="{{$un->id}}">{{$un->name}}</option>
+            @endforeach
+          </select>
+        </div>
+      </div>
       <div class="col-lg-2 col-sm-6 col-12">
         <div class="form-group">
           <select class="select" id="item-filter-branch" name="item-filter-branch">
